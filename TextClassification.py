@@ -41,7 +41,7 @@ def find_features(documents):
 #print ((find_features(movie_reviews.words('neg/cv000_29416.txt'))))
 
 featuresets = [(find_features(rev),category) for (rev,category) in documents]
-print(featuresets)
+
 """
 Output- 
 
@@ -51,12 +51,14 @@ Output-
 
 training_set = featuresets[:1900]
 testing_set = featuresets[1900:]
-
 #prosterior = (prior occurences x liklihood)/evidence
 
-print("Reached here")
-classifier = nltk.NaiveBayesClassifier.train(training_set)
-print(classifier)
+
+#classifier = nltk.NaiveBayesClassifier.train(training_set)
+classifier_f = open("naivebayes.pickle","rb")
+classifier = pickle.load(classifier_f)
+classifier_f.close()
+
 print("Navive Bayes Algo accuracy: ",(nltk.classify.accuracy(classifier,testing_set))*100)
 classifier.show_most_informative_features(15)
 
