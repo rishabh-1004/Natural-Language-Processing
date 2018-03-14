@@ -1,4 +1,4 @@
-sudo pip3 install -U nltk
-sudo pip3 install -U numpy
+sudo pip3 install nltk
+sudo pip3 install numpy
 sudo apt-install python3-tk
 pip3 install matplotlib
